@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -20,6 +21,42 @@ class LoginViewController: UIViewController {
     
 
     @IBAction func loginButtonTapped(_ sender: Any) {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else {
+           presentError(title: "Invalid Details", message: "Please check details")
+            return
+        }
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print(error.localizedDescription)
+                let errorDetails = self.checkFirebaseError(error: error)
+                self.presentError(title: errorDetails.0, message: errorDetails.1)
+                return
+            }
+            guard let _ = result else {
+                self.presentGenericError()
+                return
+            }
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
+            let window = UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? [] }.first { $0.isKeyWindow }
+            window?.rootViewController = homeVC
+        }
+    }
+    
+    private func checkFirebaseError(error: Error) -> (String, String) {
+        var errorTitle = ""
+        var errorMessage = ""
+            if let errorCode = AuthErrorCode.Code(rawValue: error._code) {
+                switch errorCode {
+                case .invalidEmail:
+                    errorTitle = "Invalid Email"
+                    errorMessage = "Email entered is invalid"
+                default:
+                    break
+                }
+            }
+        return(errorTitle, errorMessage)
     }
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
