@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>193612906118-2vkm8g3vuocot4ooto2seea8rbhq5anv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.193612906118-2vkm8g3vuocot4ooto2seea8rbhq5anv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA61K8NEkLZn3T4H_ZtnXrzCs5G2m1SM6E</string>
+	<key>GCM_SENDER_ID</key>
+	<string>193612906118</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.shafique.SocialApp</string>
+	<key>PROJECT_ID</key>
+	<string>socialnetwork-a2e7e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>socialnetwork-a2e7e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:193612906118:ios:0a1fb67b80e86a7d801b07</string>
+</dict>
+</plist>
