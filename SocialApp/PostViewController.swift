@@ -9,21 +9,31 @@ import UIKit
 
 class PostViewController: UIViewController {
 
+    @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var previewImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    }
+
+    @IBAction func cameraButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Choose Image Source", message: "", preferredStyle: .actionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { action in
+            
+        }
+        let libraryAction = UIAlertAction(title: "Library", style: .default) { action in
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(cameraAction)
+        alert.addAction(libraryAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

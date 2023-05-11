@@ -37,10 +37,8 @@ class LoginViewController: UIViewController {
                 self.presentGenericError()
                 return
             }
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let homeVC = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
             let window = UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? [] }.first { $0.isKeyWindow }
-            window?.rootViewController = homeVC
+            window?.rootViewController = Utility.getTabBarController()
         }
     }
     

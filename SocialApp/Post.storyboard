@@ -15,9 +15,49 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBz-wb-zKg">
+                                <rect key="frame" x="25" y="84" width="343" height="343"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4LA-DZ-4bc">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="343"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ni-Ow-pjM">
+                                        <rect key="frame" x="139" y="151.33333333333334" width="65.333333333333314" height="40.333333333333343"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="camera.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="22"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="cameraButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ODy-AW-jP1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="4LA-DZ-4bc" firstAttribute="leading" secondItem="QBz-wb-zKg" secondAttribute="leading" id="NGj-qy-NYS"/>
+                                    <constraint firstItem="5ni-Ow-pjM" firstAttribute="centerY" secondItem="QBz-wb-zKg" secondAttribute="centerY" id="Ojf-RV-0W4"/>
+                                    <constraint firstAttribute="bottom" secondItem="4LA-DZ-4bc" secondAttribute="bottom" id="Qwp-sc-cOH"/>
+                                    <constraint firstItem="4LA-DZ-4bc" firstAttribute="top" secondItem="QBz-wb-zKg" secondAttribute="top" id="TIb-DG-2tw"/>
+                                    <constraint firstItem="5ni-Ow-pjM" firstAttribute="centerX" secondItem="QBz-wb-zKg" secondAttribute="centerX" id="XCh-Ih-dlG"/>
+                                    <constraint firstAttribute="trailing" secondItem="4LA-DZ-4bc" secondAttribute="trailing" id="jHS-7U-SQd"/>
+                                    <constraint firstAttribute="width" secondItem="QBz-wb-zKg" secondAttribute="height" id="kE5-Yj-7y7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QBz-wb-zKg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="Abx-uU-n8S"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QBz-wb-zKg" secondAttribute="trailing" constant="25" id="mSE-el-ryV"/>
+                            <constraint firstItem="QBz-wb-zKg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="viF-57-IRX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="5ni-Ow-pjM" id="DF8-BI-BcQ"/>
+                        <outlet property="previewImageView" destination="4LA-DZ-4bc" id="5OG-6W-O13"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -25,6 +65,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
