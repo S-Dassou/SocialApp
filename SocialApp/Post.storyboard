@@ -45,18 +45,31 @@
                                     <constraint firstAttribute="width" secondItem="QBz-wb-zKg" secondAttribute="height" id="kE5-Yj-7y7"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCF-Ys-P4r">
+                                <rect key="frame" x="231" y="437" width="137" height="35"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Remove Image"/>
+                                <connections>
+                                    <action selector="removeImageButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6vu-h7-muv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QBz-wb-zKg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="Abx-uU-n8S"/>
+                            <constraint firstItem="oCF-Ys-P4r" firstAttribute="top" secondItem="QBz-wb-zKg" secondAttribute="bottom" constant="10" id="aYc-5R-Cou"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oCF-Ys-P4r" secondAttribute="trailing" constant="25" id="mAH-cj-ra5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QBz-wb-zKg" secondAttribute="trailing" constant="25" id="mSE-el-ryV"/>
                             <constraint firstItem="QBz-wb-zKg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="viF-57-IRX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cameraButton" destination="5ni-Ow-pjM" id="DF8-BI-BcQ"/>
+                        <outlet property="containerView" destination="QBz-wb-zKg" id="cJV-py-mBi"/>
                         <outlet property="previewImageView" destination="4LA-DZ-4bc" id="5OG-6W-O13"/>
+                        <outlet property="removeButtonImage" destination="oCF-Ys-P4r" id="fnb-Fn-Z47"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -68,6 +81,9 @@
         <image name="camera.fill" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
