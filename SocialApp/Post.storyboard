@@ -54,31 +54,64 @@
                                     <action selector="removeImageButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6vu-h7-muv"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rgk-dj-M3L">
+                                <rect key="frame" x="25" y="492" width="343" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="qB3-NX-3Yy"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JP-my-p9o" customClass="PrimaryButton" customModule="SocialApp" customModuleProvider="target">
+                                <rect key="frame" x="25" y="622" width="343" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="KM8-0v-ldg"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Post"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QBz-wb-zKg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="Abx-uU-n8S"/>
+                            <constraint firstItem="Rgk-dj-M3L" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="HBG-fF-HKV"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5JP-my-p9o" secondAttribute="trailing" constant="25" id="HI0-PS-irc"/>
                             <constraint firstItem="oCF-Ys-P4r" firstAttribute="top" secondItem="QBz-wb-zKg" secondAttribute="bottom" constant="10" id="aYc-5R-Cou"/>
+                            <constraint firstItem="5JP-my-p9o" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="h42-44-b3P"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oCF-Ys-P4r" secondAttribute="trailing" constant="25" id="mAH-cj-ra5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QBz-wb-zKg" secondAttribute="trailing" constant="25" id="mSE-el-ryV"/>
+                            <constraint firstItem="5JP-my-p9o" firstAttribute="top" secondItem="Rgk-dj-M3L" secondAttribute="bottom" constant="30" id="nHu-ko-ooM"/>
+                            <constraint firstItem="Rgk-dj-M3L" firstAttribute="top" secondItem="oCF-Ys-P4r" secondAttribute="bottom" constant="20" id="nR6-K6-M1K"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Rgk-dj-M3L" secondAttribute="trailing" constant="25" id="sOO-Ow-xbJ"/>
                             <constraint firstItem="QBz-wb-zKg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="viF-57-IRX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cameraButton" destination="5ni-Ow-pjM" id="DF8-BI-BcQ"/>
                         <outlet property="containerView" destination="QBz-wb-zKg" id="cJV-py-mBi"/>
+                        <outlet property="descriptionTextView" destination="Rgk-dj-M3L" id="yDg-i6-uc1"/>
                         <outlet property="previewImageView" destination="4LA-DZ-4bc" id="5OG-6W-O13"/>
                         <outlet property="removeButtonImage" destination="oCF-Ys-P4r" id="fnb-Fn-Z47"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6" y="-2"/>
+            <point key="canvasLocation" x="5.343511450381679" y="-2.1126760563380285"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="5JP-my-p9o">
+            <size key="intrinsicContentSize" width="56" height="32"/>
+        </designable>
+    </designables>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="93"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

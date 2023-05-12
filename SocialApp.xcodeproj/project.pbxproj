@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F63104362A0DA6E1007E129C /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63104352A0DA6E1007E129C /* PrimaryButton.swift */; };
+		F63104382A0DB0FF007E129C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F63104372A0DB0FF007E129C /* Colors.xcassets */; };
 		F637D5C729F9394E00A87F33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F637D5C629F9394E00A87F33 /* AppDelegate.swift */; };
 		F637D5C929F9394E00A87F33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F637D5C829F9394E00A87F33 /* SceneDelegate.swift */; };
 		F637D5CB29F9394E00A87F33 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F637D5CA29F9394E00A87F33 /* HomeViewController.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F63104352A0DA6E1007E129C /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		F63104372A0DB0FF007E129C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		F637D5C329F9394E00A87F33 /* SocialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F637D5C629F9394E00A87F33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F637D5C829F9394E00A87F33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 				F63AC33D2A0B21B300BA60BE /* PostViewController.swift */,
 				F63AC33F2A0B222500BA60BE /* ProfileViewController.swift */,
 				F63AC3412A0C53B800BA60BE /* TabBarDelegate.swift */,
+				F63104352A0DA6E1007E129C /* PrimaryButton.swift */,
+				F63104372A0DB0FF007E129C /* Colors.xcassets */,
 			);
 			path = SocialApp;
 			sourceTree = "<group>";
@@ -185,6 +191,7 @@
 				F639A12D29FAEF32001C29DE /* GoogleService-Info.plist in Resources */,
 				F637D5D029F9394F00A87F33 /* Assets.xcassets in Resources */,
 				F63AC33A2A0B215600BA60BE /* Post.storyboard in Resources */,
+				F63104382A0DB0FF007E129C /* Colors.xcassets in Resources */,
 				F63AC33C2A0B217800BA60BE /* Profile.storyboard in Resources */,
 				F637D5CE29F9394E00A87F33 /* Main.storyboard in Resources */,
 			);
@@ -198,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F63AC33E2A0B21B300BA60BE /* PostViewController.swift in Sources */,
+				F63104362A0DA6E1007E129C /* PrimaryButton.swift in Sources */,
 				F637D5DD29F9CCF500A87F33 /* LoginViewController.swift in Sources */,
 				F63AC3422A0C53B800BA60BE /* TabBarDelegate.swift in Sources */,
 				F638244429FFB1F300BF8FB7 /* Extension+UIViewController.swift in Sources */,

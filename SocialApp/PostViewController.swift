@@ -14,6 +14,9 @@ class PostViewController: UIViewController {
     @IBOutlet weak var removeButtonImage: UIButton!
     @IBOutlet weak var containerView: UIView!
     
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    
     var selectedImage: UIImage? {
         didSet {
             if selectedImage != nil {
@@ -34,11 +37,14 @@ class PostViewController: UIViewController {
         removeButtonImage.isHidden = true
         containerView.backgroundColor = UIColor.lightGray
         containerView.clipsToBounds = true
+        descriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
+        descriptionTextView.layer.borderWidth = 0.5
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         containerView.layer.cornerRadius = 8
+        descriptionTextView.layer.cornerRadius = 6
     }
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
