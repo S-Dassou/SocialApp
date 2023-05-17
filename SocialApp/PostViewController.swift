@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseStorage
 
 class PostViewController: UIViewController {
 
@@ -13,21 +16,35 @@ class PostViewController: UIViewController {
     @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var removeButtonImage: UIButton!
     @IBOutlet weak var containerView: UIView!
-    
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var characterCountLabel: UILabel!
     
+    
+    
+    let maxCharacterCount = 80
+    var charactersRemaining = 80
     
     var selectedImage: UIImage? {
         didSet {
             if selectedImage != nil {
+                print("image is showing")
                 cameraButton.isHidden = true
                 previewImageView.image = selectedImage
                 removeButtonImage.isHidden = false
             } else {
+                print("image failed")
                 cameraButton.isHidden = false
                 previewImageView.image = nil
                 removeButtonImage.isHidden = true
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UploadImageSegue" {
+            let destinationVC = segue.destination as! UploadImageViewController
+            let selectedImage = sender as! UIImage
+            destinationVC.imageToUpload = selectedImage
         }
     }
     
@@ -39,12 +56,24 @@ class PostViewController: UIViewController {
         containerView.clipsToBounds = true
         descriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
         descriptionTextView.layer.borderWidth = 0.5
+        
+        descriptionTextView.text = "What's on your mind"
+        descriptionTextView.textColor = UIColor.lightGray
+        descriptionTextView.delegate = self
+        
+        let viewTap = UITapGestureRecognizer(target: self, action: #selector(endEditingTextView))
+        view.addGestureRecognizer(viewTap)
+        view.isUserInteractionEnabled = true
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         containerView.layer.cornerRadius = 8
         descriptionTextView.layer.cornerRadius = 6
+    }
+    
+   @objc func endEditingTextView() {
+        view.endEditing(true)
     }
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
@@ -64,9 +93,8 @@ class PostViewController: UIViewController {
             let imagePicker = UIImagePickerController()
             imagePicker.sourceType = .photoLibrary
             imagePicker.allowsEditing = true
-            imagePicker.allowsEditing = true
+            imagePicker.delegate = self
             self.present(imagePicker, animated: true)
-            
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
@@ -76,6 +104,20 @@ class PostViewController: UIViewController {
         
         present(alert, animated: true)
     }
+    
+    @IBAction func postButtonTapped(_ sender: Any) {
+        //validation
+        guard let selectedImage = selectedImage else {
+            presentError(title: "No Image", message: "Add an Image to Post")
+            return
+        }
+        guard let postText = descriptionTextView.text,
+              postText.count > 0 && descriptionTextView.textColor != UIColor.lightGray else {
+            return
+        }
+        performSegue(withIdentifier: "UploadImageSegue", sender: selectedImage)
+    }
+    
     
     @IBAction func removeImageButtonTapped(_ sender: Any) {
         selectedImage = nil
@@ -93,5 +135,47 @@ extension PostViewController: UIImagePickerControllerDelegate, UINavigationContr
             selectedImage = image
         }
         picker.dismiss(animated: true)
+    }
+}
+
+extension PostViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if descriptionTextView.textColor == UIColor.lightGray {
+            descriptionTextView.textColor = UIColor.black
+            descriptionTextView.text = ""
+        }
+        descriptionTextView.layer.borderColor = UIColor.systemTeal.cgColor
+        descriptionTextView.layer.borderWidth = 2
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if descriptionTextView.text == "" {
+            descriptionTextView.text = "what's on your mind?"
+            descriptionTextView.textColor = UIColor.lightGray
+        }
+        descriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
+        descriptionTextView.layer.borderWidth = 0.5
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        let characterCount = descriptionTextView.text.count
+        charactersRemaining = maxCharacterCount - characterCount
+        characterCountLabel.text = "\(charactersRemaining)"
+        if charactersRemaining <= 15 {
+            characterCountLabel.textColor = UIColor.red
+        } else {
+            characterCountLabel.textColor = UIColor.black
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if charactersRemaining <= 0 {
+            if range.length > 0 {
+                return true
+            } else {
+                return false
+            }
+        }
+        return true
     }
 }

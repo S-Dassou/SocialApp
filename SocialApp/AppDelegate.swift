@@ -10,7 +10,6 @@ import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     static let sharedAppDelegate: AppDelegate = {
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
             fatalError("unexpected app delegate type, did it change?\(String(describing: UIApplication.shared.delegate))")

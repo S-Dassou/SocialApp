@@ -65,41 +65,105 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JP-my-p9o" customClass="PrimaryButton" customModule="SocialApp" customModuleProvider="target">
-                                <rect key="frame" x="25" y="622" width="343" height="45"/>
+                                <rect key="frame" x="25" y="653" width="343" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="KM8-0v-ldg"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Post"/>
+                                <connections>
+                                    <action selector="postButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xnv-UK-PhL"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIQ-8d-IWc">
+                                <rect key="frame" x="346" y="607" width="22" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sIQ-8d-IWc" secondAttribute="trailing" constant="25" id="77e-0q-38y"/>
+                            <constraint firstItem="5JP-my-p9o" firstAttribute="top" secondItem="sIQ-8d-IWc" secondAttribute="bottom" constant="25" id="8PJ-mY-pi0"/>
                             <constraint firstItem="QBz-wb-zKg" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="Abx-uU-n8S"/>
+                            <constraint firstItem="sIQ-8d-IWc" firstAttribute="top" secondItem="Rgk-dj-M3L" secondAttribute="bottom" constant="15" id="Fcp-Fd-FCz"/>
                             <constraint firstItem="Rgk-dj-M3L" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="HBG-fF-HKV"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5JP-my-p9o" secondAttribute="trailing" constant="25" id="HI0-PS-irc"/>
                             <constraint firstItem="oCF-Ys-P4r" firstAttribute="top" secondItem="QBz-wb-zKg" secondAttribute="bottom" constant="10" id="aYc-5R-Cou"/>
                             <constraint firstItem="5JP-my-p9o" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="h42-44-b3P"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oCF-Ys-P4r" secondAttribute="trailing" constant="25" id="mAH-cj-ra5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QBz-wb-zKg" secondAttribute="trailing" constant="25" id="mSE-el-ryV"/>
-                            <constraint firstItem="5JP-my-p9o" firstAttribute="top" secondItem="Rgk-dj-M3L" secondAttribute="bottom" constant="30" id="nHu-ko-ooM"/>
                             <constraint firstItem="Rgk-dj-M3L" firstAttribute="top" secondItem="oCF-Ys-P4r" secondAttribute="bottom" constant="20" id="nR6-K6-M1K"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5JP-my-p9o" secondAttribute="trailing" constant="25" id="ovf-ji-IS6"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Rgk-dj-M3L" secondAttribute="trailing" constant="25" id="sOO-Ow-xbJ"/>
                             <constraint firstItem="QBz-wb-zKg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="viF-57-IRX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cameraButton" destination="5ni-Ow-pjM" id="DF8-BI-BcQ"/>
+                        <outlet property="characterCountLabel" destination="sIQ-8d-IWc" id="ZGl-XQ-sD2"/>
                         <outlet property="containerView" destination="QBz-wb-zKg" id="cJV-py-mBi"/>
                         <outlet property="descriptionTextView" destination="Rgk-dj-M3L" id="yDg-i6-uc1"/>
                         <outlet property="previewImageView" destination="4LA-DZ-4bc" id="5OG-6W-O13"/>
                         <outlet property="removeButtonImage" destination="oCF-Ys-P4r" id="fnb-Fn-Z47"/>
+                        <segue destination="vuF-EU-pxb" kind="presentation" identifier="UploadImageSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="UaY-K8-jKI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5.343511450381679" y="-2.1126760563380285"/>
+        </scene>
+        <!--Upload Image View Controller-->
+        <scene sceneID="Lgl-30-skP">
+            <objects>
+                <viewController id="vuF-EU-pxb" customClass="UploadImageViewController" customModule="SocialApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TCv-gT-Dl2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Tny-Mh-oYe">
+                                <rect key="frame" x="25" y="424" width="343" height="4"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbD-rt-KfT">
+                                <rect key="frame" x="159" y="481" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="vuF-EU-pxb" eventType="touchUpInside" id="3A3-Vl-QWt"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdx-X2-n40" customClass="LottieAnimationView" customModule="Lottie">
+                                <rect key="frame" x="25" y="71" width="343" height="343"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xdx-X2-n40" secondAttribute="height" multiplier="1:1" id="zHU-dZ-Yth"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gPo-uP-mVH"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.69371811224489799" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gPo-uP-mVH" firstAttribute="trailing" secondItem="xdx-X2-n40" secondAttribute="trailing" constant="25" id="Df3-D3-TC6"/>
+                            <constraint firstItem="Tny-Mh-oYe" firstAttribute="leading" secondItem="gPo-uP-mVH" secondAttribute="leading" constant="25" id="Fxa-IA-ETm"/>
+                            <constraint firstItem="Tny-Mh-oYe" firstAttribute="top" secondItem="xdx-X2-n40" secondAttribute="bottom" constant="10" id="MXy-zY-DWz"/>
+                            <constraint firstItem="gPo-uP-mVH" firstAttribute="trailing" secondItem="Tny-Mh-oYe" secondAttribute="trailing" constant="25" id="NeH-ur-3We"/>
+                            <constraint firstItem="xdx-X2-n40" firstAttribute="leading" secondItem="gPo-uP-mVH" secondAttribute="leading" constant="25" id="jc1-sJ-oGc"/>
+                            <constraint firstItem="Tny-Mh-oYe" firstAttribute="centerY" secondItem="TCv-gT-Dl2" secondAttribute="centerY" id="zm6-9G-r3R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="xdx-X2-n40" id="pwV-ue-weB"/>
+                        <outlet property="progressView" destination="Tny-Mh-oYe" id="zmY-zS-eCk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6pW-9u-pMD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1061.8320610687022" y="6.3380281690140849"/>
         </scene>
     </scenes>
     <designables>
