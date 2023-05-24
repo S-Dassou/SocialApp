@@ -7,11 +7,19 @@
 
 import UIKit
 import FirebaseAuth
+import SDWebImage
+
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    var posts: [Post] = []
+    let cellGapSize: CGFloat = 10
+    let itemsPerRow: Int = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
 
 
@@ -26,4 +34,25 @@ class HomeViewController: UIViewController {
         }
     }
 }
+
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return posts.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let post = posts[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCollectionViewCell", for: indexPath) as! PostCollectionViewCell
+        cell.configure(post: post)
+        return cell 
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let availableWidth = collectionView.frame.width - (cellGapSize * 2)
+        let widthPerItem = availableWidth / CGFloat(itemsPerRow)
+        return CGSize(width: widthPerItem, height: widthPerItem)
+    }
+}
+
 

@@ -12,6 +12,9 @@
 		F60AAA702A135AB40047AE3F /* loadingplane.json in Resources */ = {isa = PBXBuildFile; fileRef = F60AAA6F2A135AB40047AE3F /* loadingplane.json */; };
 		F63104362A0DA6E1007E129C /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63104352A0DA6E1007E129C /* PrimaryButton.swift */; };
 		F63104382A0DB0FF007E129C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F63104372A0DB0FF007E129C /* Colors.xcassets */; };
+		F6347FE02A1D31EA0029E602 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6347FDF2A1D31EA0029E602 /* PostCollectionViewCell.swift */; };
+		F6347FE32A1D34040029E602 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6347FE22A1D34040029E602 /* Post.swift */; };
+		F6347FE62A1D75A30029E602 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F6347FE52A1D75A30029E602 /* SDWebImage */; };
 		F637D5C729F9394E00A87F33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F637D5C629F9394E00A87F33 /* AppDelegate.swift */; };
 		F637D5C929F9394E00A87F33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F637D5C829F9394E00A87F33 /* SceneDelegate.swift */; };
 		F637D5CB29F9394E00A87F33 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F637D5CA29F9394E00A87F33 /* HomeViewController.swift */; };
@@ -39,6 +42,8 @@
 		F60AAA6F2A135AB40047AE3F /* loadingplane.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingplane.json; sourceTree = "<group>"; };
 		F63104352A0DA6E1007E129C /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		F63104372A0DB0FF007E129C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		F6347FDF2A1D31EA0029E602 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		F6347FE22A1D34040029E602 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F637D5C329F9394E00A87F33 /* SocialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F637D5C629F9394E00A87F33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F637D5C829F9394E00A87F33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +74,7 @@
 				F639A13229FAF352001C29DE /* FirebaseFirestore in Frameworks */,
 				F639A13429FAF352001C29DE /* FirebaseStorage in Frameworks */,
 				F60AAA6C2A135A680047AE3F /* Lottie in Frameworks */,
+				F6347FE62A1D75A30029E602 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +97,14 @@
 			path = Lottie;
 			sourceTree = "<group>";
 		};
+		F6347FE12A1D33E90029E602 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F6347FE22A1D34040029E602 /* Post.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F637D5BA29F9394E00A87F33 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +124,7 @@
 		F637D5C529F9394E00A87F33 /* SocialApp */ = {
 			isa = PBXGroup;
 			children = (
+				F6347FE12A1D33E90029E602 /* Models */,
 				F60AAA6D2A135A7C0047AE3F /* Resources */,
 				F63824452A007EA800BF8FB7 /* Extensions */,
 				F637D5C629F9394E00A87F33 /* AppDelegate.swift */,
@@ -117,6 +132,7 @@
 				F637D5CA29F9394E00A87F33 /* HomeViewController.swift */,
 				F637D5DE29F9CD1100A87F33 /* SignUpViewController.swift */,
 				F637D5DC29F9CCF500A87F33 /* LoginViewController.swift */,
+				F63AC33D2A0B21B300BA60BE /* PostViewController.swift */,
 				F637D5CC29F9394E00A87F33 /* Main.storyboard */,
 				F637D5DA29F93A0800A87F33 /* Auth.storyboard */,
 				F63AC3392A0B215600BA60BE /* Post.storyboard */,
@@ -126,12 +142,12 @@
 				F637D5D129F9394F00A87F33 /* LaunchScreen.storyboard */,
 				F637D5D429F9394F00A87F33 /* Info.plist */,
 				F638244129FFAC1400BF8FB7 /* Utility.swift */,
-				F63AC33D2A0B21B300BA60BE /* PostViewController.swift */,
 				F63AC33F2A0B222500BA60BE /* ProfileViewController.swift */,
 				F63AC3412A0C53B800BA60BE /* TabBarDelegate.swift */,
 				F63104352A0DA6E1007E129C /* PrimaryButton.swift */,
 				F63104372A0DB0FF007E129C /* Colors.xcassets */,
 				F60AAA682A134A1C0047AE3F /* UploadImageViewController.swift */,
+				F6347FDF2A1D31EA0029E602 /* PostCollectionViewCell.swift */,
 			);
 			path = SocialApp;
 			sourceTree = "<group>";
@@ -165,6 +181,7 @@
 				F639A13129FAF352001C29DE /* FirebaseFirestore */,
 				F639A13329FAF352001C29DE /* FirebaseStorage */,
 				F60AAA6B2A135A680047AE3F /* Lottie */,
+				F6347FE52A1D75A30029E602 /* SDWebImage */,
 			);
 			productName = SocialApp;
 			productReference = F637D5C329F9394E00A87F33 /* SocialApp.app */;
@@ -197,6 +214,7 @@
 			packageReferences = (
 				F639A12E29FAF352001C29DE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F60AAA6A2A135A680047AE3F /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				F6347FE42A1D75A30029E602 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = F637D5C429F9394E00A87F33 /* Products */;
 			projectDirPath = "";
@@ -236,10 +254,12 @@
 				F637D5DD29F9CCF500A87F33 /* LoginViewController.swift in Sources */,
 				F63AC3422A0C53B800BA60BE /* TabBarDelegate.swift in Sources */,
 				F638244429FFB1F300BF8FB7 /* Extension+UIViewController.swift in Sources */,
+				F6347FE32A1D34040029E602 /* Post.swift in Sources */,
 				F60AAA692A134A1C0047AE3F /* UploadImageViewController.swift in Sources */,
 				F637D5CB29F9394E00A87F33 /* HomeViewController.swift in Sources */,
 				F638244229FFAC1400BF8FB7 /* Utility.swift in Sources */,
 				F637D5C729F9394E00A87F33 /* AppDelegate.swift in Sources */,
+				F6347FE02A1D31EA0029E602 /* PostCollectionViewCell.swift in Sources */,
 				F63AC3402A0B222500BA60BE /* ProfileViewController.swift in Sources */,
 				F637D5C929F9394E00A87F33 /* SceneDelegate.swift in Sources */,
 				F637D5DF29F9CD1100A87F33 /* SignUpViewController.swift in Sources */,
@@ -468,6 +488,14 @@
 				kind = branch;
 			};
 		};
+		F6347FE42A1D75A30029E602 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		F639A12E29FAF352001C29DE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -483,6 +511,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F60AAA6A2A135A680047AE3F /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		F6347FE52A1D75A30029E602 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6347FE42A1D75A30029E602 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 		F639A12F29FAF352001C29DE /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

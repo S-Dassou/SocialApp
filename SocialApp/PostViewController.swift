@@ -10,6 +10,10 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
 
+protocol PostDelegate: AnyObject {
+    func imageUploadComplete(downloadURL: String?)
+}
+
 class PostViewController: UIViewController {
 
     @IBOutlet weak var cameraButton: UIButton!
@@ -45,6 +49,7 @@ class PostViewController: UIViewController {
             let destinationVC = segue.destination as! UploadImageViewController
             let selectedImage = sender as! UIImage
             destinationVC.imageToUpload = selectedImage
+            destinationVC.delegate = self
         }
     }
     
@@ -137,7 +142,7 @@ extension PostViewController: UIImagePickerControllerDelegate, UINavigationContr
         picker.dismiss(animated: true)
     }
 }
-
+//MARK: - text view delegate
 extension PostViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if descriptionTextView.textColor == UIColor.lightGray {
@@ -178,4 +183,28 @@ extension PostViewController: UITextViewDelegate {
         }
         return true
     }
+}
+
+extension PostViewController: PostDelegate {
+    func imageUploadComplete(downloadURL: String?) {
+        guard let downloadURL = downloadURL else {
+            presentError(title: "Upload Fail", message: "Image couldnt upload")
+            return
+        }
+        
+        let postText = descriptionTextView.text!
+        
+        let postDetail: [String: Any] = [
+            "description": postText,
+            "imageURL": downloadURL,
+            "createdAt": Date().timeIntervalSince1970
+        ]
+        
+        Firestore.firestore().collection("posts").document().setData(postDetail) { error in
+            DispatchQueue.main.async {
+                self.dismiss(animated: true)
+            }
+        }
+    }
+     
 }
