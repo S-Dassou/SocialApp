@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import SDWebImage
+import FirebaseFirestore
 
 class HomeViewController: UIViewController {
 
@@ -20,6 +21,89 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+        observePosts()
+    }
+    
+    func observePosts() {
+        Firestore.firestore().collection("posts").addSnapshotListener { snapshot, error in
+                if let error = error {
+                    print("DEBUG: \(error.localizedDescription)")
+                    self.presentError(title: "Error", message: "Couldnt get posts")
+                    return
+                }
+                guard let documents = snapshot?.documents else {
+                    self.presentError(title: "Error", message: "Couldnt get posts")
+                    return
+                }
+            
+            self.posts.removeAll()
+                
+                for document in documents {
+                    let postId = document.documentID
+                    let data = document.data()
+                    
+                    guard let firebaseImageURL = data["imageURL"] as? String,
+                          let imageURL = URL(string: firebaseImageURL) else {
+                        continue
+                    }
+                    
+                    guard let firebaseCreatedAt = data["createdAt"] as? Double else {
+                        continue
+                    }
+                    
+                    guard let description = data["description"] as? String else {
+                        continue
+                    }
+                    
+                    let createdAt = Date(timeIntervalSince1970: firebaseCreatedAt)
+                    
+                    let post = Post(id: postId, imageURL: imageURL, description: description, createdAt: createdAt)
+                    self.posts.append(post)
+                }
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+            }
+        }
+    }
+    
+    func loadData() {
+        Firestore.firestore().collection("posts").getDocuments { snapshot, error in
+            if let error = error {
+                print("DEBUG: \(error.localizedDescription)")
+                self.presentError(title: "Error", message: "Couldnt get posts")
+                return
+            }
+            guard let documents = snapshot?.documents else {
+                self.presentError(title: "Error", message: "Couldnt get posts")
+                return
+            }
+            
+            for document in documents {
+                let postId = document.documentID
+                let data = document.data()
+                
+                guard let firebaseImageURL = data["imageURL"] as? String,
+                      let imageURL = URL(string: firebaseImageURL) else {
+                    continue
+                }
+                
+                guard let firebaseCreatedAt = data["createdAt"] as? Double else {
+                    continue
+                }
+                
+                guard let description = data["description"] as? String else {
+                    continue
+                }
+                
+                let createdAt = Date(timeIntervalSince1970: firebaseCreatedAt)
+                
+                let post = Post(id: postId, imageURL: imageURL, description: description, createdAt: createdAt)
+                self.posts.append(post)
+            }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
 
 

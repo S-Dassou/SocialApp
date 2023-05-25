@@ -8,8 +8,15 @@
 import Foundation
 
 struct Post {
+    let id: String
     let imageURL: URL
     let description: String
     let createdAt: Date
     
+}
+
+extension Post: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
