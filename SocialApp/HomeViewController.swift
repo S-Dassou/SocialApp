@@ -14,8 +14,6 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var posts: [Post] = []
-    let cellGapSize: CGFloat = 10
-    let itemsPerRow: Int = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,8 +131,8 @@ extension HomeViewController: UICollectionViewDataSource {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let availableWidth = collectionView.frame.width - (cellGapSize * 2)
-        let widthPerItem = availableWidth / CGFloat(itemsPerRow)
+        let availableWidth = collectionView.frame.width - (Config.cellGapSize * 2)
+        let widthPerItem = availableWidth / CGFloat(Config.itemsPerRow)
         return CGSize(width: widthPerItem, height: widthPerItem)
     }
 }

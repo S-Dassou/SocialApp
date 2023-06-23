@@ -10,6 +10,10 @@
 		F60AAA692A134A1C0047AE3F /* UploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60AAA682A134A1C0047AE3F /* UploadImageViewController.swift */; };
 		F60AAA6C2A135A680047AE3F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F60AAA6B2A135A680047AE3F /* Lottie */; };
 		F60AAA702A135AB40047AE3F /* loadingplane.json in Resources */ = {isa = PBXBuildFile; fileRef = F60AAA6F2A135AB40047AE3F /* loadingplane.json */; };
+		F620B8642A436F50006FCD77 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620B8622A436F50006FCD77 /* ProfileCollectionViewCell.swift */; };
+		F620B8652A436F50006FCD77 /* ProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F620B8632A436F50006FCD77 /* ProfileCollectionViewCell.xib */; };
+		F620B8672A4520D9006FCD77 /* ProfilePostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620B8662A4520D9006FCD77 /* ProfilePostCollectionViewCell.swift */; };
+		F620B8692A45C851006FCD77 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620B8682A45C851006FCD77 /* Config.swift */; };
 		F63104362A0DA6E1007E129C /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63104352A0DA6E1007E129C /* PrimaryButton.swift */; };
 		F63104382A0DB0FF007E129C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F63104372A0DB0FF007E129C /* Colors.xcassets */; };
 		F6347FE02A1D31EA0029E602 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6347FDF2A1D31EA0029E602 /* PostCollectionViewCell.swift */; };
@@ -40,6 +44,10 @@
 /* Begin PBXFileReference section */
 		F60AAA682A134A1C0047AE3F /* UploadImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewController.swift; sourceTree = "<group>"; };
 		F60AAA6F2A135AB40047AE3F /* loadingplane.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loadingplane.json; sourceTree = "<group>"; };
+		F620B8622A436F50006FCD77 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		F620B8632A436F50006FCD77 /* ProfileCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCollectionViewCell.xib; sourceTree = "<group>"; };
+		F620B8662A4520D9006FCD77 /* ProfilePostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostCollectionViewCell.swift; sourceTree = "<group>"; };
+		F620B8682A45C851006FCD77 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		F63104352A0DA6E1007E129C /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		F63104372A0DB0FF007E129C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		F6347FDF2A1D31EA0029E602 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -148,6 +156,10 @@
 				F63104372A0DB0FF007E129C /* Colors.xcassets */,
 				F60AAA682A134A1C0047AE3F /* UploadImageViewController.swift */,
 				F6347FDF2A1D31EA0029E602 /* PostCollectionViewCell.swift */,
+				F620B8622A436F50006FCD77 /* ProfileCollectionViewCell.swift */,
+				F620B8632A436F50006FCD77 /* ProfileCollectionViewCell.xib */,
+				F620B8662A4520D9006FCD77 /* ProfilePostCollectionViewCell.swift */,
+				F620B8682A45C851006FCD77 /* Config.swift */,
 			);
 			path = SocialApp;
 			sourceTree = "<group>";
@@ -234,6 +246,7 @@
 				F637D5D329F9394F00A87F33 /* LaunchScreen.storyboard in Resources */,
 				F639A12D29FAEF32001C29DE /* GoogleService-Info.plist in Resources */,
 				F637D5D029F9394F00A87F33 /* Assets.xcassets in Resources */,
+				F620B8652A436F50006FCD77 /* ProfileCollectionViewCell.xib in Resources */,
 				F60AAA702A135AB40047AE3F /* loadingplane.json in Resources */,
 				F63AC33A2A0B215600BA60BE /* Post.storyboard in Resources */,
 				F63104382A0DB0FF007E129C /* Colors.xcassets in Resources */,
@@ -253,6 +266,8 @@
 				F63104362A0DA6E1007E129C /* PrimaryButton.swift in Sources */,
 				F637D5DD29F9CCF500A87F33 /* LoginViewController.swift in Sources */,
 				F63AC3422A0C53B800BA60BE /* TabBarDelegate.swift in Sources */,
+				F620B8692A45C851006FCD77 /* Config.swift in Sources */,
+				F620B8642A436F50006FCD77 /* ProfileCollectionViewCell.swift in Sources */,
 				F638244429FFB1F300BF8FB7 /* Extension+UIViewController.swift in Sources */,
 				F6347FE32A1D34040029E602 /* Post.swift in Sources */,
 				F60AAA692A134A1C0047AE3F /* UploadImageViewController.swift in Sources */,
@@ -260,6 +275,7 @@
 				F638244229FFAC1400BF8FB7 /* Utility.swift in Sources */,
 				F637D5C729F9394E00A87F33 /* AppDelegate.swift in Sources */,
 				F6347FE02A1D31EA0029E602 /* PostCollectionViewCell.swift in Sources */,
+				F620B8672A4520D9006FCD77 /* ProfilePostCollectionViewCell.swift in Sources */,
 				F63AC3402A0B222500BA60BE /* ProfileViewController.swift in Sources */,
 				F637D5C929F9394E00A87F33 /* SceneDelegate.swift in Sources */,
 				F637D5DF29F9CD1100A87F33 /* SignUpViewController.swift in Sources */,
