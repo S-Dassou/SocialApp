@@ -101,6 +101,7 @@ class PostViewController: UIViewController {
             imagePicker.delegate = self
             self.present(imagePicker, animated: true)
         }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         alert.addAction(cameraAction)
@@ -120,7 +121,14 @@ class PostViewController: UIViewController {
               postText.count > 0 && descriptionTextView.textColor != UIColor.lightGray else {
             return
         }
-        performSegue(withIdentifier: "UploadImageSegue", sender: selectedImage)
+        
+        let postStoryboard = UIStoryboard(name: "Post", bundle: nil)
+        let postVC = postStoryboard.instantiateViewController(withIdentifier: "UploadImageVC") as! UploadImageViewController
+        postVC.imageToUpload = selectedImage
+        postVC.delegate = self
+        present(postVC, animated: true)
+        
+        //performSegue(withIdentifier: "UploadImageSegue", sender: selectedImage)
     }
     
     
@@ -192,11 +200,16 @@ extension PostViewController: PostDelegate {
             return
         }
         
+        guard let userId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
         let postText = descriptionTextView.text!
         
         let postDetail: [String: Any] = [
             "description": postText,
             "imageURL": downloadURL,
+            "userId": userId,
             "createdAt": Date().timeIntervalSince1970
         ]
         

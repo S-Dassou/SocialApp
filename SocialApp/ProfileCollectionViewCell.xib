@@ -20,19 +20,29 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SR-Ia-c5n">
                         <rect key="frame" x="0.0" y="0.0" width="506" height="404"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YVg-3M-Z5x">
-                                <rect key="frame" x="193" y="30" width="120" height="120"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YVg-3M-Z5x">
+                                <rect key="frame" x="193" y="32.000000000000007" width="120" height="116.66666666666669"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="O6a-E9-xhd"/>
                                     <constraint firstAttribute="height" constant="120" id="eYy-IU-QIr"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnQ-CW-WTM">
-                                <rect key="frame" x="25" y="170" width="456" height="31.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnQ-CW-WTM">
+                                <rect key="frame" x="25" y="170" width="456" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4b-1c-iJU">
+                                <rect key="frame" x="293" y="111.66666666666667" width="55.666666666666686" height="34.333333333333329"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="camera.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="changeAvatarButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="jUF-k4-8cv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -40,6 +50,8 @@
                             <constraint firstItem="wnQ-CW-WTM" firstAttribute="leading" secondItem="6SR-Ia-c5n" secondAttribute="leading" constant="25" id="AJX-U4-chO"/>
                             <constraint firstItem="wnQ-CW-WTM" firstAttribute="top" secondItem="YVg-3M-Z5x" secondAttribute="bottom" constant="20" id="Ore-DH-Rei"/>
                             <constraint firstAttribute="trailing" secondItem="wnQ-CW-WTM" secondAttribute="trailing" constant="25" id="TFY-hs-N98"/>
+                            <constraint firstItem="H4b-1c-iJU" firstAttribute="bottom" secondItem="YVg-3M-Z5x" secondAttribute="bottom" constant="-4" id="deG-8V-BeH"/>
+                            <constraint firstItem="H4b-1c-iJU" firstAttribute="leading" secondItem="YVg-3M-Z5x" secondAttribute="trailing" constant="-20" id="uH1-dv-KZE"/>
                             <constraint firstItem="YVg-3M-Z5x" firstAttribute="centerX" secondItem="6SR-Ia-c5n" secondAttribute="centerX" id="uJM-3O-SyR"/>
                         </constraints>
                     </view>
@@ -53,10 +65,16 @@
                 <constraint firstAttribute="trailing" secondItem="6SR-Ia-c5n" secondAttribute="trailing" id="tut-Og-1Hq"/>
             </constraints>
             <size key="customSize" width="506" height="404"/>
+            <connections>
+                <outlet property="avatarImageView" destination="YVg-3M-Z5x" id="x8m-4i-1MV"/>
+                <outlet property="nameLabel" destination="wnQ-CW-WTM" id="H6E-W9-HEt"/>
+            </connections>
             <point key="canvasLocation" x="180.15267175572518" y="48.591549295774648"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="93"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

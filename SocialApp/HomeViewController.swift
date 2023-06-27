@@ -15,6 +15,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var posts: [Post] = []
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PostDetailSegue" {
+            let destinationVC = segue.destination as! PostDetailViewController
+            let post = sender as! Post
+            destinationVC.post = post
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
@@ -33,15 +41,18 @@ class HomeViewController: UIViewController {
                     self.presentError(title: "Error", message: "Couldnt get posts")
                     return
                 }
-            
             self.posts.removeAll()
-                
+            
                 for document in documents {
                     let postId = document.documentID
                     let data = document.data()
                     
                     guard let firebaseImageURL = data["imageURL"] as? String,
                           let imageURL = URL(string: firebaseImageURL) else {
+                        continue
+                    }
+                    
+                    guard let userId = data["userId"] as? String else {
                         continue
                     }
                     
@@ -55,7 +66,7 @@ class HomeViewController: UIViewController {
                     
                     let createdAt = Date(timeIntervalSince1970: firebaseCreatedAt)
                     
-                    let post = Post(id: postId, imageURL: imageURL, description: description, createdAt: createdAt)
+                    let post = Post(id: postId, userId: userId, imageURL: imageURL, description: description, createdAt: createdAt)
                     self.posts.append(post)
                 }
                 DispatchQueue.main.async {
@@ -85,6 +96,10 @@ class HomeViewController: UIViewController {
                     continue
                 }
                 
+                guard let userId = data["userId"] as? String else {
+                    continue
+                }
+                
                 guard let firebaseCreatedAt = data["createdAt"] as? Double else {
                     continue
                 }
@@ -95,7 +110,7 @@ class HomeViewController: UIViewController {
                 
                 let createdAt = Date(timeIntervalSince1970: firebaseCreatedAt)
                 
-                let post = Post(id: postId, imageURL: imageURL, description: description, createdAt: createdAt)
+                let post = Post(id: postId, userId: userId, imageURL: imageURL, description: description, createdAt: createdAt)
                 self.posts.append(post)
             }
             DispatchQueue.main.async {
@@ -130,6 +145,12 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let post = posts[indexPath.row]
+        performSegue(withIdentifier: "PostDetailSegue", sender: post)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let availableWidth = collectionView.frame.width - (Config.cellGapSize * 2)
         let widthPerItem = availableWidth / CGFloat(Config.itemsPerRow)
