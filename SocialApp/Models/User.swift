@@ -11,7 +11,7 @@ import Firebase
 struct User {
     let id: String
     let username: String
-    let avatar: URL?
+    var avatar: URL?
     
     init(id: String, username: String, avatar: URL? = nil) {
         self.id = id
@@ -29,10 +29,11 @@ struct User {
             return nil
         }
         self.username = username
+        
         self.id = snapshot.documentID
         if let avatar = data["avatar"] as? String,
            let avatarURL = URL(string: avatar) {
-            self.avatar = avatarURL
+           self.avatar = avatarURL
         }
     }
 }

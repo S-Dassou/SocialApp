@@ -115,6 +115,9 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                                <connections>
+                                    <action selector="likeButtonTapped:" destination="Pmt-Dy-2pa" eventType="touchUpInside" id="TMM-o3-ufR"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuv-3f-UEW">
                                 <rect key="frame" x="15" y="665" width="363" height="18"/>
@@ -146,6 +149,7 @@
                     <connections>
                         <outlet property="avatarImageVIew" destination="fp4-du-vNP" id="841-l2-c7q"/>
                         <outlet property="descriptionLabel" destination="yuv-3f-UEW" id="MT4-Zl-oOm"/>
+                        <outlet property="likeButton" destination="Krx-ba-U9e" id="DcN-SK-kKS"/>
                         <outlet property="postImageView" destination="av8-At-Esj" id="2hK-PW-qHg"/>
                         <outlet property="usernameLabel" destination="YeK-9L-fzv" id="sUb-OW-plb"/>
                     </connections>

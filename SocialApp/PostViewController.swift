@@ -212,7 +212,6 @@ extension PostViewController: PostDelegate {
             "userId": userId,
             "createdAt": Date().timeIntervalSince1970
         ]
-        
         Firestore.firestore().collection("posts").document().setData(postDetail) { error in
             DispatchQueue.main.async {
                 self.dismiss(animated: true)

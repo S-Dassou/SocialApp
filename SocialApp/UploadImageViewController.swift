@@ -42,33 +42,41 @@ class UploadImageViewController: UIViewController {
         progressView.progress = 0
         let imageID = UUID().uuidString.lowercased().replacingOccurrences(of: "-", with: "_")
         let imageName = imageID + ".jpeg"
+        //break
         let imagePath = "images/\(userId)/\(imageName)"
         
         let storageRef = Storage.storage().reference(withPath: imagePath)
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
+        
         //upload-data
+        print("DEBUG: preparing to upload image")
         uploadTask = storageRef.putData(imageData, metadata: metaData) { _, error in
+        print("DEBUG: upload completed")
             if let error = error {
+                print("DEBUG: image upload failed")
                 print(error.localizedDescription)
                 self.delegate?.imageUploadComplete(downloadURL: nil)
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async {
                     self.dismiss(animated: true)
                 }
                 return
             }
+        print("DEBUG: image upload succeeded")
             //download url retrievable after upload complete
             storageRef.downloadURL { url, error in
                 if let error = error {
+                    print("DEBUG: image upload failed 2")
                     print(error.localizedDescription)
                     self.delegate?.imageUploadComplete(downloadURL: nil)
-                    DispatchQueue.main.sync {
+                    DispatchQueue.main.async {
                         self.dismiss(animated: true)
                     }
                     return
                 }
-                self.delegate?.imageUploadComplete(downloadURL: nil)
-                DispatchQueue.main.sync {
+                print("DEBUG: image upload should now post")
+                self.delegate?.imageUploadComplete(downloadURL: url?.absoluteString)
+                DispatchQueue.main.async {
                     self.dismiss(animated: true)
                 }
             }
@@ -77,7 +85,7 @@ class UploadImageViewController: UIViewController {
         
         uploadTask!.observe(.progress) { snapshot in
             let percentComplete = Double(snapshot.progress!.completedUnitCount / snapshot.progress!.totalUnitCount)
-            DispatchQueue.main.sync {
+            DispatchQueue.main.async {
                 self.progressView.setProgress(Float(percentComplete), animated: true)
             }
         }
@@ -88,16 +96,4 @@ class UploadImageViewController: UIViewController {
         self.delegate?.imageUploadComplete(downloadURL: nil)
         dismiss(animated: true)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

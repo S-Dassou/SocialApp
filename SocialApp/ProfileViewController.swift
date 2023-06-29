@@ -155,7 +155,7 @@ extension ProfileViewController: ProfileCollectionViewCellDelegate {
             self.present(imagePicker, animated: true)
         }
         let deletePhoto = UIAlertAction(title: "Delete", style: .destructive) { action in
-            <#code#>
+            
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
