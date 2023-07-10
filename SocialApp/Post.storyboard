@@ -167,7 +167,7 @@
     </scenes>
     <designables>
         <designable name="5JP-my-p9o">
-            <size key="intrinsicContentSize" width="58" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="56" height="32"/>
         </designable>
     </designables>
     <resources>

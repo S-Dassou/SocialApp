@@ -16,6 +16,8 @@
 		F620B8692A45C851006FCD77 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620B8682A45C851006FCD77 /* Config.swift */; };
 		F620B86B2A4903D1006FCD77 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620B86A2A4903D1006FCD77 /* PostDetailViewController.swift */; };
 		F620B86D2A499B97006FCD77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620B86C2A499B97006FCD77 /* User.swift */; };
+		F620B86F2A4D8C59006FCD77 /* CommentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620B86E2A4D8C59006FCD77 /* CommentDetailViewController.swift */; };
+		F620B8712A505B08006FCD77 /* PostComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620B8702A505B08006FCD77 /* PostComments.swift */; };
 		F63104362A0DA6E1007E129C /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63104352A0DA6E1007E129C /* PrimaryButton.swift */; };
 		F63104382A0DB0FF007E129C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F63104372A0DB0FF007E129C /* Colors.xcassets */; };
 		F6347FE02A1D31EA0029E602 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6347FDF2A1D31EA0029E602 /* PostCollectionViewCell.swift */; };
@@ -52,6 +54,8 @@
 		F620B8682A45C851006FCD77 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		F620B86A2A4903D1006FCD77 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		F620B86C2A499B97006FCD77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F620B86E2A4D8C59006FCD77 /* CommentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDetailViewController.swift; sourceTree = "<group>"; };
+		F620B8702A505B08006FCD77 /* PostComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComments.swift; sourceTree = "<group>"; };
 		F63104352A0DA6E1007E129C /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		F63104372A0DB0FF007E129C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		F6347FDF2A1D31EA0029E602 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 			children = (
 				F6347FE22A1D34040029E602 /* Post.swift */,
 				F620B86C2A499B97006FCD77 /* User.swift */,
+				F620B8702A505B08006FCD77 /* PostComments.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,16 +147,17 @@
 				F63824452A007EA800BF8FB7 /* Extensions */,
 				F637D5C629F9394E00A87F33 /* AppDelegate.swift */,
 				F637D5C829F9394E00A87F33 /* SceneDelegate.swift */,
-				F637D5CA29F9394E00A87F33 /* HomeViewController.swift */,
 				F637D5DE29F9CD1100A87F33 /* SignUpViewController.swift */,
 				F637D5DC29F9CCF500A87F33 /* LoginViewController.swift */,
-				F63AC33D2A0B21B300BA60BE /* PostViewController.swift */,
-				F63AC33F2A0B222500BA60BE /* ProfileViewController.swift */,
 				F60AAA682A134A1C0047AE3F /* UploadImageViewController.swift */,
+				F63AC3392A0B215600BA60BE /* Post.storyboard */,
+				F63AC33D2A0B21B300BA60BE /* PostViewController.swift */,
 				F620B86A2A4903D1006FCD77 /* PostDetailViewController.swift */,
+				F63AC33F2A0B222500BA60BE /* ProfileViewController.swift */,
+				F620B86E2A4D8C59006FCD77 /* CommentDetailViewController.swift */,
+				F637D5CA29F9394E00A87F33 /* HomeViewController.swift */,
 				F637D5CC29F9394E00A87F33 /* Main.storyboard */,
 				F637D5DA29F93A0800A87F33 /* Auth.storyboard */,
-				F63AC3392A0B215600BA60BE /* Post.storyboard */,
 				F63AC33B2A0B217800BA60BE /* Profile.storyboard */,
 				F639A12C29FAEF32001C29DE /* GoogleService-Info.plist */,
 				F637D5CF29F9394F00A87F33 /* Assets.xcassets */,
@@ -269,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F63AC33E2A0B21B300BA60BE /* PostViewController.swift in Sources */,
+				F620B8712A505B08006FCD77 /* PostComments.swift in Sources */,
 				F63104362A0DA6E1007E129C /* PrimaryButton.swift in Sources */,
 				F637D5DD29F9CCF500A87F33 /* LoginViewController.swift in Sources */,
 				F63AC3422A0C53B800BA60BE /* TabBarDelegate.swift in Sources */,
@@ -287,6 +294,7 @@
 				F637D5C929F9394E00A87F33 /* SceneDelegate.swift in Sources */,
 				F637D5DF29F9CD1100A87F33 /* SignUpViewController.swift in Sources */,
 				F620B86D2A499B97006FCD77 /* User.swift in Sources */,
+				F620B86F2A4D8C59006FCD77 /* CommentDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

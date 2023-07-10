@@ -273,6 +273,14 @@
             <point key="canvasLocation" x="926" y="4"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="59r-aY-VEg">
+            <size key="intrinsicContentSize" width="40" height="30"/>
+        </designable>
+        <designable name="eaW-7c-NRL">
+            <size key="intrinsicContentSize" width="56" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

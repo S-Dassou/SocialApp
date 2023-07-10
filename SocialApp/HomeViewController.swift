@@ -67,6 +67,7 @@ class HomeViewController: UIViewController {
                     let createdAt = Date(timeIntervalSince1970: firebaseCreatedAt)
                     
                     let post = Post(id: postId, userId: userId, imageURL: imageURL, description: description, createdAt: createdAt)
+                    
                     self.posts.append(post)
                 }
                 DispatchQueue.main.async {

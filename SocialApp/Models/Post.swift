@@ -13,7 +13,6 @@ struct Post {
     let imageURL: URL
     let description: String
     let createdAt: Date
-    
 }
 
 extension Post: Hashable {

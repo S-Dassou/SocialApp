@@ -16,8 +16,17 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var avatarImageVIew: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
     
     var post: Post!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CommentDetailSegue" {
+            let destinationVC = segue.destination as! CommentDetailViewController
+            let post = sender as! Post
+            destinationVC.post = post
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +39,7 @@ class PostDetailViewController: UIViewController {
         likeButton.setImage(UIImage(systemName: "heart.fill"), for: .selected)
         
         Firestore.firestore().collection("posts").document(post.id).collection("likes").document(post.userId).getDocument { snapshot, error in
-            if let error  = error {
+            if let error = error {
                 print("Error: \(error.localizedDescription)")
                 return
             }
@@ -63,6 +72,10 @@ class PostDetailViewController: UIViewController {
     }
     
     
+    @IBAction func commentButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "CommentDetailSegue", sender: post)
+    }
+    
     func getUserDetails(userId: String) {
         Firestore.firestore().collection("users").document(userId).getDocument { snapshot, error in
             if let error = error {
@@ -76,5 +89,4 @@ class PostDetailViewController: UIViewController {
             
         }
     }
-
 }
