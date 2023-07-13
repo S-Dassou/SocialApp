@@ -18,6 +18,7 @@
 		F620B86D2A499B97006FCD77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620B86C2A499B97006FCD77 /* User.swift */; };
 		F620B86F2A4D8C59006FCD77 /* CommentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620B86E2A4D8C59006FCD77 /* CommentDetailViewController.swift */; };
 		F620B8712A505B08006FCD77 /* PostComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620B8702A505B08006FCD77 /* PostComments.swift */; };
+		F620B8972A5EA784006FCD77 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F620B8962A5EA784006FCD77 /* CommentTableViewCell.swift */; };
 		F63104362A0DA6E1007E129C /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63104352A0DA6E1007E129C /* PrimaryButton.swift */; };
 		F63104382A0DB0FF007E129C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F63104372A0DB0FF007E129C /* Colors.xcassets */; };
 		F6347FE02A1D31EA0029E602 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6347FDF2A1D31EA0029E602 /* PostCollectionViewCell.swift */; };
@@ -56,6 +57,7 @@
 		F620B86C2A499B97006FCD77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F620B86E2A4D8C59006FCD77 /* CommentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDetailViewController.swift; sourceTree = "<group>"; };
 		F620B8702A505B08006FCD77 /* PostComments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComments.swift; sourceTree = "<group>"; };
+		F620B8962A5EA784006FCD77 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		F63104352A0DA6E1007E129C /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		F63104372A0DB0FF007E129C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		F6347FDF2A1D31EA0029E602 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				F620B86A2A4903D1006FCD77 /* PostDetailViewController.swift */,
 				F63AC33F2A0B222500BA60BE /* ProfileViewController.swift */,
 				F620B86E2A4D8C59006FCD77 /* CommentDetailViewController.swift */,
+				F620B8962A5EA784006FCD77 /* CommentTableViewCell.swift */,
 				F637D5CA29F9394E00A87F33 /* HomeViewController.swift */,
 				F637D5CC29F9394E00A87F33 /* Main.storyboard */,
 				F637D5DA29F93A0800A87F33 /* Auth.storyboard */,
@@ -285,6 +288,7 @@
 				F6347FE32A1D34040029E602 /* Post.swift in Sources */,
 				F60AAA692A134A1C0047AE3F /* UploadImageViewController.swift in Sources */,
 				F637D5CB29F9394E00A87F33 /* HomeViewController.swift in Sources */,
+				F620B8972A5EA784006FCD77 /* CommentTableViewCell.swift in Sources */,
 				F638244229FFAC1400BF8FB7 /* Utility.swift in Sources */,
 				F637D5C729F9394E00A87F33 /* AppDelegate.swift in Sources */,
 				F6347FE02A1D31EA0029E602 /* PostCollectionViewCell.swift in Sources */,

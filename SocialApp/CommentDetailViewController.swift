@@ -8,15 +8,19 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import SDWebImage
 
 class CommentDetailViewController: UIViewController {
 
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var commentHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var commentDetailTableView: UITableView!
+    
     
     var post: Post!
     var comments: [PostComments] = [] 
     var user: User?
+    
     
     
     override func viewDidLoad() {
@@ -28,6 +32,8 @@ class CommentDetailViewController: UIViewController {
         
         observeComments()
         getUser()
+        commentDetailTableView.delegate = self
+        commentDetailTableView.dataSource = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,7 +52,6 @@ class CommentDetailViewController: UIViewController {
             guard let snapshot = snapshot else {
                 return
             }
-            
 //            guard let userData = snapshot.data() else {
 //                return
 //            }
@@ -84,15 +89,19 @@ class CommentDetailViewController: UIViewController {
                     let data = document.data()
                     
                     guard let firebaseCreatedAt = data["createdAt"] as? Double else {
+                        print("no created at")
                         continue
                     }
                     guard let userId = data["userId"] as? String else {
+                        print("no userId 1")
                         continue
                     }
-                    guard let postComment = data["commentText"] as? String else {
+                    guard let postComment = data["postComment"] as? String else {
+                        print("no postComment")
                         continue
                     }
                     guard let username = data["username"] as? String else {
+                        print("no username")
                         continue
                     }
                     
@@ -101,9 +110,11 @@ class CommentDetailViewController: UIViewController {
                     let comment = PostComments(postComment: postComment, userID: userId, commentCreatedAt: createdAt, username: username)
                     
                     self.comments.append(comment)
-                    
             }
             print(self.comments)
+            DispatchQueue.main.async {
+                self.commentDetailTableView.reloadData()
+            }
         }
     }
 
@@ -115,14 +126,60 @@ class CommentDetailViewController: UIViewController {
         else {
             return
         }
+        guard let username = user?.username else {
+            print("no username")
+            return }
         
-        Firestore.firestore().collection("posts").document(post.id).collection("comments").document().setData([
+        guard let userId = user?.id else {
+            print("no userId")
+            return
+        }
+        
+        var commentDetail: [String: Any] = [
             "postComment": postComment,
-            "createdAt": Date().timeIntervalSince1970
-            
-        ])
+            "createdAt": Date().timeIntervalSince1970,
+            "username": username,
+            "userId": userId
+        ]
+        
+        if let avatar = user?.avatar?.absoluteString {
+            commentDetail["avatar"] = avatar
+             }
+        
+        Firestore.firestore().collection("posts").document(post.id).collection("comments").document().setData(commentDetail)
     }
 }
+
+extension CommentDetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comments.count
+    }
+    
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell", for: indexPath) as! CommentTableViewCell
+        let comment = comments[indexPath.row]
+        
+        cell.commentAvatarImageView.sd_setImage(with: comment.avatar, placeholderImage: UIImage(systemName: "person.fill"))
+        
+        cell.commentUsernameLabel.text = comment.username
+        cell.commentTextLabel.text = comment.postComment
+        
+        return cell 
+    }
+
+
+}
+
+extension CommentDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80
+    }
+    
+}
+
+
 
 extension CommentDetailViewController: UITextViewDelegate {
     func commentTextViewDidBeginEditing(_ textView: UITextView) {
@@ -142,6 +199,11 @@ extension CommentDetailViewController: UITextViewDelegate {
         textView.frame = newFrame
     }
 }
+
+
+
+
+
 
 //Phase 1: Writing data correctly to firebase
 // get user model by making query to firebase Q4G - we already have the user model in console. Why not use a delegate and pass data from 1 VC to another?

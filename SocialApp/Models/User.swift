@@ -13,7 +13,7 @@ struct User {
     let username: String
     var avatar: URL?
     
-    init(id: String, username: String, avatar: URL? = nil) {
+    init(id : String, username: String, avatar: URL? = nil) {
         self.id = id
         self.username = username
         self.avatar = avatar
