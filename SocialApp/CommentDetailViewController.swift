@@ -69,7 +69,6 @@ class CommentDetailViewController: UIViewController {
         }
     }
     
-    
     func observeComments() {
         Firestore.firestore().collection("posts").document(post.id).collection("comments").addSnapshotListener { snapshot, error in
             if let error = error {
@@ -82,6 +81,8 @@ class CommentDetailViewController: UIViewController {
                 self.presentError(title: "Error", message: "Couldnt get posts")
                 return
             }
+            
+            self.comments.removeAll()
             
                 for document in documents {
                     print("loop entered")
