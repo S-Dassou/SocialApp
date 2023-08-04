@@ -108,7 +108,7 @@ class CommentDetailViewController: UIViewController {
                     
                     let createdAt = Date(timeIntervalSince1970: firebaseCreatedAt)
                     
-                    let comment = PostComments(postComment: postComment, userID: userId, commentCreatedAt: createdAt, username: username)
+                    let comment = PostComments(id: commentId, postComment: postComment, userID: userId, commentCreatedAt: createdAt, username: username)
                     
                     self.comments.append(comment)
             }
@@ -156,7 +156,6 @@ extension CommentDetailViewController: UITableViewDataSource {
         return comments.count
     }
     
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentTableViewCell", for: indexPath) as! CommentTableViewCell
@@ -169,8 +168,20 @@ extension CommentDetailViewController: UITableViewDataSource {
         
         return cell 
     }
-
-
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let comment = comments[indexPath.row]
+        if editingStyle == .delete {
+            //delete from firebase (function? or standalone code? - configure after)
+            print("DEBUG: postID is \(post.id)")
+            print("DEBUG: commentID is \(comment.userId)")
+            Firestore.firestore().collection("posts").document(post.id).collection("comments").document(comment.id).delete()
+            
+            //remove at the index path and delete the row
+            
+            comments.remove(at: indexPath.row)
+            commentDetailTableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
 }
 
 extension CommentDetailViewController: UITableViewDelegate {
