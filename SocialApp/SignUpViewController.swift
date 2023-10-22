@@ -71,7 +71,6 @@ class SignUpViewController: UIViewController {
         return(errorTitle, errorMessage)
     }
     
-    
     @IBAction func loginButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "LoginSegue", sender: nil)
     }

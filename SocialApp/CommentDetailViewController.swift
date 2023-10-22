@@ -16,12 +16,10 @@ class CommentDetailViewController: UIViewController {
     @IBOutlet weak var commentHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var commentDetailTableView: UITableView!
     
-    
     var post: Post!
     var comments: [PostComments] = [] 
     var user: User?
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,8 +127,8 @@ class CommentDetailViewController: UIViewController {
         }
         guard let username = user?.username else {
             print("no username")
-            return }
-        
+            return
+        }
         guard let userId = user?.id else {
             print("no userId")
             return
@@ -190,8 +188,6 @@ extension CommentDetailViewController: UITableViewDelegate {
     }
     
 }
-
-
 
 extension CommentDetailViewController: UITextViewDelegate {
     func commentTextViewDidBeginEditing(_ textView: UITextView) {

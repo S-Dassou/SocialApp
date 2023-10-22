@@ -11,7 +11,6 @@ import SDWebImage
 
 class ProfileViewController: UIViewController {
 
-    
     @IBOutlet weak var collectionView: UICollectionView!
     var posts: [Post] = []
     var user: User?
@@ -84,7 +83,6 @@ class ProfileViewController: UIViewController {
             }
             }
     }
-        
     }
 extension ProfileViewController: UICollectionViewDataSource {
     

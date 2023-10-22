@@ -23,8 +23,6 @@ class PostViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var characterCountLabel: UILabel!
     
-    
-    
     let maxCharacterCount = 80
     var charactersRemaining = 80
     
@@ -127,22 +125,15 @@ class PostViewController: UIViewController {
         postVC.imageToUpload = selectedImage
         postVC.delegate = self
         present(postVC, animated: true)
-        
-        //performSegue(withIdentifier: "UploadImageSegue", sender: selectedImage)
     }
-    
     
     @IBAction func removeImageButtonTapped(_ sender: Any) {
         selectedImage = nil
     }
-    
-    
 }
-
 
 extension PostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
  
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage{
             selectedImage = image
@@ -219,5 +210,4 @@ extension PostViewController: PostDelegate {
             }
         }
     }
-     
 }

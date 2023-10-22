@@ -19,7 +19,6 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
     @IBAction func loginButtonTapped(_ sender: Any) {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else {
